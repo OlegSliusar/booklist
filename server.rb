@@ -25,3 +25,7 @@ end
 get '/' do
   'Welcome to BookList!'
 end
+
+namespace '/api/v1' do
+
+end
