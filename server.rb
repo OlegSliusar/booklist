@@ -65,4 +65,10 @@ namespace '/api/v1' do
     # We just change this from books.to_json to the following
     books.map { |book| BookSerializer.new(book) }.to_json
   end
+
+  get '/books/:id' do |id|
+    book = Book.where(id: id).first
+    halt(404, { message:'Book Not Found'}.to_json) unless book
+    BookSerializer.new(book).to_json
+  end
 end
